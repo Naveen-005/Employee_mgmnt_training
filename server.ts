@@ -8,6 +8,11 @@ server.use(express.json())
 server.use(processTimeMiddleware)
 server.use(loggerMiddleware);
 
+/*
+TODO:
+send time taken along response header
+*/
+
 server.get("/",(req,res)=>{
     res.status(200).send("Hello World")
 })
