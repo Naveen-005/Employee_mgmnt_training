@@ -1,6 +1,12 @@
 import express from 'express'
 import employeeRouter from './employee_router'
+import { loggerMiddleware } from './loggerMiddleware'
+import { processTimeMiddleware } from './processTimeMiddleware'
 const server = express()
+
+server.use(express.json())
+server.use(processTimeMiddleware)
+server.use(loggerMiddleware);
 
 server.get("/",(req,res)=>{
     res.status(200).send("Hello World")
